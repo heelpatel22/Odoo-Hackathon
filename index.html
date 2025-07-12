@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | Futuristic Skill Exchange Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/fav.svg" type="image/x-icon">
+</head>
+<body class="min-h-screen gradient-bg">
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-opacity-90 backdrop-blur-md bg-[#0a0a1a] neon-border-b">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-exchange-alt text-2xl text-[var(--primary)]"></i>
+                <h1 class="text-2xl font-bold glow-text">SkillSwap</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="hover:text-[var(--primary)] transition">Home</a>
+                <a href="#explore" class="hover:text-[var(--primary)] transition">Explore</a>
+                <a href="#requests" class="hover:text-[var(--primary)] transition">Requests</a>
+                <a href="#profile" class="hover:text-[var(--primary)] transition">Profile</a>
+                <button id="adminBtn" class="hidden bg-[var(--secondary)] hover:bg-[var(--primary)] text-white px-4 py-2 rounded-full transition">Admin</button>
+                <button id="loginBtn" class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Login</button>
+            </div>
+            
+            <button id="mobileMenuBtn" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#1a1a3a] neon-border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="py-2 hover:text-[var(--primary)] transition">Home</a>
+                <a href="#explore" class="py-2 hover:text-[var(--primary)] transition">Explore</a>
+                <a href="#requests" class="py-2 hover:text-[var(--primary)] transition">Requests</a>
+                <a href="#profile" class="py-2 hover:text-[var(--primary)] transition">Profile</a>
+                <button id="mobileAdminBtn" class="hidden py-2 text-left bg-[var(--secondary)] hover:bg-[var(--primary)] text-white px-4 rounded-full transition">Admin</button>
+                <button id="mobileLoginBtn" class="py-2 text-left bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 rounded-full transition">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section id="home" class="mb-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 glow-text">Swap Skills, <span class="text-[var(--primary)]">Grow Together</span></h2>
+                    <p class="text-lg mb-6 text-gray-300">Connect with people who have the skills you need and share your expertise in return. The future of collaborative learning is here.</p>
+                    <div class="flex space-x-4">
+                        <button id="getStartedBtn" class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-6 py-3 rounded-full transition transform hover:scale-105">Get Started</button>
+                        <button class="bg-transparent border-2 border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--dark)] font-bold px-6 py-3 rounded-full transition transform hover:scale-105">How It Works</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-[var(--primary)] opacity-20 blur-xl"></div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-[var(--secondary)] opacity-20 blur-xl"></div>
+                        <div class="relative bg-[#1a1a3a] neon-border rounded-2xl p-6 glow-box">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                                    <i class="fas fa-user text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">Heel Patel</h4>
+                                    <p class="text-sm text-gray-400">Mehsana, Gujarat</p>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <h5 class="font-semibold mb-2 text-[var(--primary)]">Offering:</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-chip bg-[#252547] text-white px-3 py-1 rounded-full text-sm">Web Development</span>
+                                    <span class="skill-chip bg-[#252547] text-white px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+                                    <span class="skill-chip bg-[#252547] text-white px-3 py-1 rounded-full text-sm">Photography</span>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <h5 class="font-semibold mb-2 text-[var(--primary)]">Seeking:</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-chip bg-[#252547] text-white px-3 py-1 rounded-full text-sm">Data Analyst</span>
+                                    <span class="skill-chip bg-[#252547] text-white px-3 py-1 rounded-full text-sm">Digital Marketing</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-400"><i class="fas fa-clock mr-1"></i> Weekends</span>
+                                <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-sm font-bold px-4 py-1 rounded-full transition">Request Swap</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Section -->
+        <section id="explore" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold glow-text">Explore <span class="text-[var(--primary)]">Skills</span></h2>
+                <div class="relative w-64">
+                    <input type="text" placeholder="Search skills..." class="w-full bg-[#1a1a3a] neon-border rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                    <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box hover:glow-box transition transform hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold">Dhruv Patel</h4>
+                            <p class="text-xs text-gray-400">Mehsana, Gujarat</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Offering:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Data Science</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Seeking:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Graphic Design</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Video Editing</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> Evenings</span>
+                        <button class="request-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-xs font-bold px-3 py-1 rounded-full transition">Request</button>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 2 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box hover:glow-box transition transform hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold">Yash Patel</h4>
+                            <p class="text-xs text-gray-400">Mumbai, Maharashtra</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Offering:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Graphic Design</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">App Development</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Seeking:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Web Development</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Photography</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> Weekends</span>
+                        <button class="request-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-xs font-bold px-3 py-1 rounded-full transition">Request</button>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 3 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box hover:glow-box transition transform hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold">Hiten Shah</h4>
+                            <p class="text-xs text-gray-400">Ahmedabad, Gujarat</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Offering:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Swift</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Kotlin</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Seeking:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Go</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Typescript</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> Flexible</span>
+                        <button class="request-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-xs font-bold px-3 py-1 rounded-full transition">Request</button>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 4 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box hover:glow-box transition transform hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold">Kunal Mehta</h4>
+                            <p class="text-xs text-gray-400">Chicago, USA</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Offering:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Cyber Security</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Graphic Design</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Seeking:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Video Editing</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Social Media</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> Afternoons</span>
+                        <button class="request-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-xs font-bold px-3 py-1 rounded-full transition">Request</button>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 5 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box hover:glow-box transition transform hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold">Harsh Shah</h4>
+                            <p class="text-xs text-gray-400">Sydney, Australia</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Offering:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Cloud Engineer</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Editing</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Seeking:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Kubernates</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Compute Engine</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> Mornings</span>
+                        <button class="request-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-xs font-bold px-3 py-1 rounded-full transition">Request</button>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 6 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box hover:glow-box transition transform hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold">Raj Patel</h4>
+                            <p class="text-xs text-gray-4 00">Mumbai, India</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Offering:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Financial Planning</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Excel</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-sm font-semibold text-[var(--primary)] mb-2">Seeking:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Public Speaking</span>
+                            <span class="skill-chip bg-[#252547] text-white px-2 py-1 rounded-full text-xs">Leadership</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> Evenings</span>
+                        <button class="request-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] text-xs font-bold px-3 py-1 rounded-full transition">Request</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button class="bg-transparent border-2 border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--dark)] font-bold px-6 py-2 rounded-full transition">Load More</button>
+            </div>
+        </section>
+
+        <!-- Requests Section -->
+        <section id="requests" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 glow-text">Your <span class="text-[var(--primary)]">Requests</span></h2>
+            
+            <div class="flex mb-6 border-b border-[var(--secondary)]">
+                <button id="pendingTab" class="px-4 py-2 font-medium border-b-2 border-[var(--primary)] text-[var(--primary)]">Pending</button>
+                <button id="acceptedTab" class="px-4 py-2 font-medium text-gray-400 hover:text-[var(--primary)]">Accepted</button>
+                <button id="completedTab" class="px-4 py-2 font-medium text-gray-400 hover:text-[var(--primary)]">Completed</button>
+            </div>
+            
+            <div id="pendingRequests">
+                <!-- Pending Request 1 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 mb-4 glow-box">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                                <i class="fas fa-paint-brush text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold">Kirit Modi</h4>
+                                <p class="text-sm text-gray-400">Requested:App Design</p>
+                                <p class="text-sm text-gray-400">Offering: Web Development</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="accept-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Accept</button>
+                            <button class="reject-btn bg-transparent border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold px-4 py-2 rounded-full transition">Reject</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pending Request 2 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 mb-4 glow-box">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                                <i class="fas fa-language text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold">Khyati Yadav</h4>
+                                <p class="text-sm text-gray-400">Requested: Game development</p>
+                                <p class="text-sm text-gray-400">Offering: Kotlin </p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="accept-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Accept</button>
+                            <button class="reject-btn bg-transparent border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold px-4 py-2 rounded-full transition">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="acceptedRequests" class="hidden">
+                <!-- Accepted Request 1 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 mb-4 glow-box">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                                <i class="fas fa-code text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold">Kajal Prajapati</h4>
+                                <p class="text-sm text-gray-400">You're learning: Data Science</p>
+                                <p class="text-sm text-gray-400">You're teaching: Graphic Design</p>
+                                <p class="text-sm text-[var(--primary)]"><i class="fas fa-calendar-alt mr-1"></i> Scheduled: Every Tuesday, 7-8pm</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="complete-btn bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Mark Complete</button>
+                            <button class="message-btn bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="completedRequests" class="hidden">
+                <!-- Completed Request 1 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 mb-4 glow-box">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div class="w-12 h-12 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                                <i class="fas fa-music text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold">Jayesh Patil</h4>
+                                <p class="text-sm text-gray-400">You learned: Guitar Basics</p>
+                                <p class="text-sm text-gray-400">You taught: Video Editing</p>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-xs text-gray-400 ml-1">4.5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Leave Feedback</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 glow-text">Your <span class="text-[var(--primary)]">Profile</span></h2>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Profile Card -->
+                <div class="lg:w-1/3">
+                    <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                        <div class="flex flex-col items-center mb-6">
+                            <div class="w-24 h-24 rounded-full bg-[var(--secondary)] flex items-center justify-center mb-4">
+                                <i class="fas fa-user text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Dhruv Patel</h3>
+                            <p class="text-gray-400">Mehsana,Gujarat</p>
+                            <div class="mt-4 flex space-x-4">
+                                <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Edit Profile</button>
+                                <button class="bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Settings</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h5 class="font-semibold mb-2 text-[var(--primary)]">Availability:</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-[#252547] text-white px-3 py-1 rounded-full text-sm">Weekends</span>
+                                <span class="bg-[#252547] text-white px-3 py-1 rounded-full text-sm">Evenings</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h5 class="font-semibold text-[var(--primary)]">Profile Status:</h5>
+                                <p class="text-sm">Public</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--primary)]"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="lg:w-2/3">
+                    <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box mb-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-[var(--primary)]">Skills You Offer</h3>
+                            <button id="addOfferBtn" class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">+ Add Skill</button>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <div class="bg-[#252547] rounded-full px-4 py-2 flex items-center">
+                                <span>Web Development</span>
+                                <button class="ml-2 text-gray-400 hover:text-white">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="bg-[#252547] rounded-full px-4 py-2 flex items-center">
+                                <span>UI/UX Design</span>
+                                <button class="ml-2 text-gray-400 hover:text-white">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="bg-[#252547] rounded-full px-4 py-2 flex items-center">
+                                <span>Photography</span>
+                                <button class="ml-2 text-gray-400 hover:text-white">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Add Skill Form (Hidden by default) -->
+                        <div id="offerForm" class="hidden mt-4">
+                            <div class="flex">
+                                <input type="text" placeholder="Add a skill you offer" class="flex-grow bg-[#252547] border border-[var(--primary)] text-white px-4 py-2 rounded-l-full focus:outline-none">
+                                <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-r-full transition">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-[var(--primary)]">Skills You Want</h3>
+                            <button id="addWantBtn" class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">+ Add Skill</button>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <div class="bg-[#252547] rounded-full px-4 py-2 flex items-center">
+                                <span>Spanish Language</span>
+                                <button class="ml-2 text-gray-400 hover:text-white">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="bg-[#252547] rounded-full px-4 py-2 flex items-center">
+                                <span>Digital Marketing</span>
+                                <button class="ml-2 text-gray-400 hover:text-white">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Add Skill Form (Hidden by default) -->
+                        <div id="wantForm" class="hidden mt-4">
+                            <div class="flex">
+                                <input type="text" placeholder="Add a skill you want" class="flex-grow bg-[#252547] border border-[var(--primary)] text-white px-4 py-2 rounded-l-full focus:outline-none">
+                                <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-r-full transition">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Panel (Hidden by default) -->
+        <section id="adminPanel" class="hidden mb-16">
+            <h2 class="text-3xl font-bold mb-8 glow-text">Admin <span class="text-[var(--primary)]">Dashboard</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Stats Card 1 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Total Users</p>
+                            <h3 class="text-2xl font-bold">1,248</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-[var(--secondary)] bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-users text-[var(--primary)]"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-[#252547]">
+                        <p class="text-sm text-gray-400"><span class="text-green-400">+12%</span> from last month</p>
+                    </div>
+                </div>
+                
+                <!-- Stats Card 2 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Active Swaps</p>
+                            <h3 class="text-2xl font-bold">326</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-[var(--secondary)] bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-exchange-alt text-[var(--primary)]"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-[#252547]">
+                        <p class="text-sm text-gray-400"><span class="text-green-400">+8%</span> from last week</p>
+                    </div>
+                </div>
+                
+                <!-- Stats Card 3 -->
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-400">Pending Reviews</p>
+                            <h3 class="text-2xl font-bold">24</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-[var(--secondary)] bg-opacity-20 flex items-center justify-center">
+                            <i class="fas fa-flag text-[var(--primary)]"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-[#252547]">
+                        <p class="text-sm text-gray-400"><span class="text-red-400">+3</span> new today</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Admin Tabs -->
+            <div class="flex mb-6 border-b border-[var(--secondary)]">
+                <button id="reportsTab" class="px-4 py-2 font-medium border-b-2 border-[var(--primary)] text-[var(--primary)]">Reports</button>
+                <button id="usersTab" class="px-4 py-2 font-medium text-gray-400 hover:text-[var(--primary)]">Users</button>
+                <button id="messagesTab" class="px-4 py-2 font-medium text-gray-400 hover:text-[var(--primary)]">Messages</button>
+            </div>
+            
+            <!-- Reports Content -->
+            <div id="reportsContent">
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box mb-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold">Flagged Skills</h3>
+                        <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Download Report</button>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-[#252547]">
+                                    <th class="text-left py-3 px-4">Skill</th>
+                                    <th class="text-left py-3 px-4">User</th>
+                                    <th class="text-left py-3 px-4">Reports</th>
+                                    <th class="text-left py-3 px-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-[#252547] hover:bg-[#252547]">
+                                    <td class="py-3 px-4">"Hacking"</td>
+                                    <td class="py-3 px-4">user123</td>
+                                    <td class="py-3 px-4">5</td>
+                                    <td class="py-3 px-4">
+                                        <button class="approve-btn bg-green-500 hover:bg-green-600 text-white text-xs font-bold px-3 py-1 rounded mr-2">Approve</button>
+                                        <button class="reject-btn bg-red-500 hover:bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-[#252547] hover:bg-[#252547]">
+                                    <td class="py-3 px-4">"Fake Skill"</td>
+                                    <td class="py-3 px-4">scammer22</td>
+                                    <td class="py-3 px-4">12</td>
+                                    <td class="py-3 px-4">
+                                        <button class="approve-btn bg-green-500 hover:bg-green-600 text-white text-xs font-bold px-3 py-1 rounded mr-2">Approve</button>
+                                        <button class="reject-btn bg-red-500 hover:bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">Reject</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold">User Activity</h3>
+                        <div class="flex space-x-3">
+                            <select class="bg-[#252547] border border-[var(--primary)] text-white px-3 py-1 rounded-full focus:outline-none">
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option>Last 90 days</option>
+                            </select>
+                            <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Export Data</button>
+                        </div>
+                    </div>
+                    
+                    <div class="h-64 bg-[#252547] rounded-lg flex items-center justify-center">
+                        <p class="text-gray-400">Activity chart would appear here</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Users Content (Hidden by default) -->
+            <div id="usersContent" class="hidden">
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold">User Management</h3>
+                        <div class="relative w-64">
+                            <input type="text" placeholder="Search users..." class="w-full bg-[#252547] neon-border rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-[#252547]">
+                                    <th class="text-left py-3 px-4">Username</th>
+                                    <th class="text-left py-3 px-4">Email</th>
+                                    <th class="text-left py-3 px-4">Status</th>
+                                    <th class="text-left py-3 px-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-[#252547] hover:bg-[#252547]">
+                                    <td class="py-3 px-4">user123</td>
+                                    <td class="py-3 px-4">user123@example.com</td>
+                                    <td class="py-3 px-4"><span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Active</span></td>
+                                    <td class="py-3 px-4">
+                                        <button class="ban-btn bg-red-500 hover:bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">Ban</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-[#252547] hover:bg-[#252547]">
+                                    <td class="py-3 px-4">scammer22</td>
+                                    <td class="py-3 px-4">scammer22@example.com</td>
+                                    <td class="py-3 px-4"><span class="bg-red-500 text-white text-xs px-2 py-1 rounded">Banned</span></td>
+                                    <td class="py-3 px-4">
+                                        <button class="unban-btn bg-green-500 hover:bg-green-600 text-white text-xs font-bold px-3 py-1 rounded">Unban</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Messages Content (Hidden by default) -->
+            <div id="messagesContent" class="hidden">
+                <div class="bg-[#1a1a3a] neon-border rounded-xl p-6 glow-box">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold">Platform Announcements</h3>
+                        <button id="newMessageBtn" class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">+ New Message</button>
+                    </div>
+                    
+                    <!-- New Message Form (Hidden by default) -->
+                    <div id="messageForm" class="hidden mb-6">
+                        <div class="mb-4">
+                            <label class="block text-gray-400 mb-2">Subject</label>
+                            <input type="text" class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-400 mb-2">Message</label>
+                            <textarea class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 h-32 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"></textarea>
+                        </div>
+                        <div class="flex justify-end space-x-3">
+                            <button id="cancelMessageBtn" class="bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Cancel</button>
+                            <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold px-4 py-2 rounded-full transition">Send</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Messages List -->
+                    <div class="space-y-4">
+                        <div class="bg-[#252547] rounded-lg p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold">System Maintenance Tonight</h4>
+                                    <p class="text-sm text-gray-400">Posted: June 15, 2023</p>
+                                </div>
+                                <button class="text-gray-400 hover:text-white">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            <p class="mt-2">We'll be performing scheduled maintenance tonight from 2-4 AM UTC. The platform will be unavailable during this time.</p>
+                        </div>
+                        
+                        <div class="bg-[#252547] rounded-lg p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold">New Feature: Skill Verification</h4>
+                                    <p class="text-sm text-gray-400">Posted: June 10, 2023</p>
+                                </div>
+                                <button class="text-gray-400 hover:text-white">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            <p class="mt-2">We've added a new skill verification system. Users can now verify their skills with certifications or portfolio links.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1a3a] neon-border-t py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <i class="fas fa-exchange-alt text-2xl text-[var(--primary)]"></i>
+                    <h2 class="text-xl font-bold">SkillSwap</h2>
+                </div>
+                
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" class="hover:text-[var(--primary)] transition">About</a>
+                    <a href="#" class="hover:text-[var(--primary)] transition">Privacy</a>
+                    <a href="#" class="hover:text-[var(--primary)] transition">Terms</a>
+                    <a href="#" class="hover:text-[var(--primary)] transition">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/heelpatel22" class="w-10 h-10 rounded-full bg-[#252547] flex items-center justify-center hover:bg-[var(--primary)] hover:text-[var(--dark)] transition">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#252547] flex items-center justify-center hover:bg-[var(--primary)] hover:text-[var(--dark)] transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#252547] flex items-center justify-center hover:bg-[var(--primary)] hover:text-[var(--dark)] transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-[#252547] text-center text-gray-400 text-sm">
+                <p>&copy; 2025 SkillSwap | All rights reserved | The future of collaborative learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-[#1a1a3a] neon-border rounded-xl p-8 max-w-md w-full mx-4 glow-box slide-in">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-[var(--primary)]">Welcome Back</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-400 mb-2">Email</label>
+                    <input type="email" class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-400 mb-2">Password</label>
+                    <input type="password" class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                </div>
+                
+                <div class="flex items-center justify-between mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="form-checkbox bg-[#252547] border-[var(--primary)] text-[var(--primary)] rounded">
+                        <span class="ml-2 text-gray-400">Remember me</span>
+                    </label>
+                    <a href="#" class="text-[var(--primary)] hover:underline">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="w-full bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold py-3 rounded-full transition mb-4">Login</button>
+                
+                <div class="text-center text-gray-400">
+                    <p>Don't have an account? <a href="#" class="text-[var(--primary)] hover:underline">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Request Modal -->
+    <div id="requestModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-[#1a1a3a] neon-border rounded-xl p-8 max-w-md w-full mx-4 glow-box slide-in">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Request Skill Swap</h3>
+                <button id="closeRequestModal" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <div class="mb-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full bg-[var(--secondary)] flex items-center justify-center">
+                        <i class="fas fa-user text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="font-bold" id="requestUserName">Carlos Ruiz</h4>
+                        <p class="text-sm text-gray-400">Requesting: <span id="requestSkill">Graphic Design</span></p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-400 mb-2">What will you offer in return?</label>
+                    <select class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                        <option>Web Development</option>
+                        <option>UI/UX Design</option>
+                        <option>Photography</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-400 mb-2">Proposed Time</label>
+                    <input type="text" placeholder="E.g. Weekends, Tuesday evenings" class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-gray-400 mb-2">Message (Optional)</label>
+                    <textarea class="w-full bg-[#252547] neon-border rounded-lg py-2 px-4 h-24 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]" placeholder="Add a personal message..."></textarea>
+                </div>
+            </div>
+            
+            <button id="submitRequestBtn" class="w-full bg-[var(--primary)] hover:bg-[var(--secondary)] text-[var(--dark)] font-bold py-3 rounded-full transition">Send Request</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Toast -->
+    <div id="confirmationToast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span id="toastMessage">Request sent successfully!</span>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
